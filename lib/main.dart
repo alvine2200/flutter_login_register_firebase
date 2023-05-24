@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: TAppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      // themeMode: ThemeMode.dark,
       home: const AppHome(),
     );
   }
@@ -25,6 +25,10 @@ class AppHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Fluttering'),
+      ),
+    );
   }
 }
