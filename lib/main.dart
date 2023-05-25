@@ -31,25 +31,33 @@ class WelcomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const Image(
-            image: AssetImage("assets/images/welcome_page_img/download.jpeg"),
+            width: 150.0,
+            height: 150.0,
+            image: AssetImage("assets/images/BigPen.jpeg"),
           ),
           const Column(
             children: [
-              Text(tWelcomeTitle),
-              Text(tSubTitle),
+              Text(
+                tWelcomeTitle,
+                style: TextStyle(color: Colors.black54, fontSize: 24.0),
+              ),
+              Text(
+                tSubTitle,
+                style: TextStyle(color: Colors.black45, fontSize: 15.0),
+              ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ElevatedButton(
+              OutlinedButton(
                 onPressed: () {},
                 child: const Text(tLoginText),
               ),
-              OutlinedButton(
+              ElevatedButton(
                 onPressed: () {},
                 child: const Text(tRegisterText),
-              )
+              ),
             ],
           )
         ],
