@@ -27,47 +27,61 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ignore: avoid_unnecessary_containers
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const Image(
-              fit: BoxFit.contain,
-              image: AssetImage(tWelcomeImage),
-            ),
-            const Text(
-              tWelcomeTitle,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 26.0,
+      body: SafeArea(
+        // ignore: avoid_unnecessary_containers
+        child: Container(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const Image(
+                height: 250.0,
+                width: 250.0,
+                alignment: Alignment.center,
+                // fit: BoxFit.contain,
+                image: AssetImage(tWelcomeImage),
               ),
-            ),
-            const Text(
-              tSubTitle,
-              style: TextStyle(
-                fontWeight: FontWeight.normal,
-                fontSize: 19.0,
+              const Column(
+                children: [
+                  Text(
+                    tWelcomeTitle,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 26.0,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 17.0,
+                  ),
+                  Text(
+                    tSubTitle,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 19.0,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                OutlinedButton(
-                  onPressed: () {
-                    debugPrint('Hello There');
-                  },
-                  child: const Text(tLoginText),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    debugPrint('Hello two');
-                  },
-                  child: const Text(tRegisterText),
-                ),
-              ],
-            )
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  OutlinedButton(
+                    onPressed: () {
+                      debugPrint('Hello There');
+                    },
+                    child: const Text(tLoginText),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      debugPrint('Hello two');
+                    },
+                    child: const Text(tRegisterText),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
