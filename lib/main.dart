@@ -26,20 +26,23 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SafeArea(
         // ignore: avoid_unnecessary_containers
         child: Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const Image(
-                height: 250.0,
+              Image(
+                // height: 250.0,
                 width: 250.0,
                 alignment: Alignment.center,
-                // fit: BoxFit.contain,
-                image: AssetImage(tWelcomeImage),
+                fit: BoxFit.contain,
+                image: const AssetImage(tWelcomeImage),
+                height: height * 0.6,
               ),
               const Column(
                 children: [
@@ -64,19 +67,43 @@ class WelcomePage extends StatelessWidget {
                 ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  OutlinedButton(
-                    onPressed: () {
-                      debugPrint('Hello There');
-                    },
-                    child: const Text(tLoginText),
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: () {
+                        debugPrint('Hello There');
+                      },
+                      style: OutlinedButton.styleFrom(
+                        shape: const RoundedRectangleBorder(),
+                        foregroundColor: const Color.fromARGB(255, 30, 36, 39),
+                        side: const BorderSide(color: Colors.black87),
+                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      ),
+                      child: Text(tLoginText.toUpperCase()),
+                    ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      debugPrint('Hello two');
-                    },
-                    child: const Text(tRegisterText),
+                  const SizedBox(
+                    width: 10.0,
+                  ),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        debugPrint('Hello two');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        shape: const RoundedRectangleBorder(),
+                        backgroundColor:
+                            const Color.fromARGB(255, 112, 110, 110),
+                        foregroundColor:
+                            const Color.fromARGB(255, 229, 234, 236),
+                        side: const BorderSide(
+                            color: Color.fromARGB(221, 14, 13, 13)),
+                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      ),
+                      child: Text(tRegisterText.toUpperCase()),
+                    ),
                   ),
                 ],
               )
